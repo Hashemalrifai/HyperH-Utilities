@@ -1,0 +1,38 @@
+trigger:
+- main
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+variables:
+  buildConfiguration: 'Release'
+
+steps:
+- task: DotNetCoreCLI@2
+  name: "Build"
+  inputs:
+    command: 'build'
+
+- task: DotNetCoreCLI@2
+  name: 'Test'
+  inputs:
+    command: 'test'
+    projects: '**/HyperH.Utilities.UnitTests.csproj'
+
+- task: DotNetCoreCLI@2
+  name: "Pack"
+  inputs:
+    command: 'pack'
+    packagesToPack: '**/HyperH.Utilities.csproj'
+    versioningScheme: 'byPrereleaseNumber'
+    majorVersion: '1'
+    minorVersion: '0'
+    patchVersion: '0'
+
+- task: NuGetCommand@2
+  name: "Push_Nuget"
+  inputs:
+    command: 'push'
+    packagesToPush: '$(Build.ArtifactStagingDirectory)/**/*.nupkg;!$(Build.ArtifactStagingDirectory)/**/*.symbols.nupkg'
+    nuGetFeedType: 'internal'
+    publishVstsFeed: '2a8e039c-f214-45b6-b689-17a35945ffac'
