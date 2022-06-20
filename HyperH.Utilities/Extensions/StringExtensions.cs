@@ -7,5 +7,10 @@ namespace HyperH.Utilities.Extensions
         {
 			return string.IsNullOrWhiteSpace(sourceString);
         }
+
+		public static bool HasValue(this string sourceString)
+        {
+			return !string.IsNullOrWhiteSpace(sourceString);
+        }
 	}
 }
