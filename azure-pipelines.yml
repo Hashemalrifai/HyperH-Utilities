@@ -35,7 +35,7 @@ steps:
     command: 'push'
     packagesToPush: '$(Build.ArtifactStagingDirectory)/*.nupkg'
     nuGetFeedType: 'internal'
-    publishVstsFeed: 'HyperHFeed'
+    publishVstsFeed: 'b58971b8-2964-47bf-9210-a1817505a795/9e491b49-9287-407b-8572-79be6f05e455'
 
 - task: PublishBuildArtifacts@1
   inputs:
