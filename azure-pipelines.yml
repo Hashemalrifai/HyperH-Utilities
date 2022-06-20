@@ -30,11 +30,12 @@ steps:
     patchVersion: '0'
   
 - task: DotNetCoreCLI@2
+  name: "NugetPublish"
   inputs:
     command: 'push'
     packagesToPush: '$(Build.ArtifactStagingDirectory)/*.nupkg'
     nuGetFeedType: 'internal'
-    publishVstsFeed: '2a8e039c-f214-45b6-b689-17a35945ffac'
+    publishVstsFeed: 'HyperHFeed'
 
 - task: PublishBuildArtifacts@1
   inputs:
