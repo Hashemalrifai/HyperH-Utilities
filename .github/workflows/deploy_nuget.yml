@@ -5,7 +5,8 @@ on:
     branches: [ "main" ]
 
 jobs:
-  build:
+  build_and_nuget:
+    name: Build and push to Nuget
 
     runs-on: ubuntu-latest
 
