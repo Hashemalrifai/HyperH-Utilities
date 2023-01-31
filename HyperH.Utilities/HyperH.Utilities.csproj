@@ -5,4 +5,8 @@
     <VersionPrefix>1.0.2</VersionPrefix>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="System.Security.Principal" Version="4.3.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.2.0" />
+  </ItemGroup>
 </Project>
